@@ -52,14 +52,13 @@ function Signup() {
 
     try {
       // TODO: Replace with your actual backend API endpoint
-      const response = await fetch("/api/signup", {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           password: formData.password,
         }),

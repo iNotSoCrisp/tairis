@@ -40,7 +40,7 @@ function Auth() {
     }
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,8 @@ function Auth() {
       if (response.ok) {
         navigate("/dashboard");
       } else {
-        setLoginError("Invalid email or password");
+        const data = await response.json();
+        setLoginError(data.msg || "Invalid email or password");
       }
     } catch (err) {
       setLoginError("An error occurred. Please try again later.");
@@ -94,14 +95,13 @@ function Auth() {
     }
 
     try {
-      const response = await fetch("/api/signup", {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName: signupData.firstName,
-          lastName: signupData.lastName,
+          name: `${signupData.firstName} ${signupData.lastName}`,
           email: signupData.email,
           password: signupData.password,
         }),
@@ -119,7 +119,8 @@ function Auth() {
         setActiveTab("login");
         setLoginError("Sign up successful! Please log in.");
       } else {
-        setSignupError("Sign up failed. Please try again.");
+        const data = await response.json();
+        setSignupError(data.msg || "Sign up failed. Please try again.");
       }
     } catch (err) {
       setSignupError("An error occurred. Please try again later.");

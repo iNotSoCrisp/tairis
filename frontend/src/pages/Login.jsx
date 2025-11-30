@@ -20,7 +20,7 @@ function Login() {
 
     try {
       // TODO: Replace with your actual backend API endpoint
-      const response = await fetch("/api/login", {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function Login() {
       <div className="login-box">
         <h1>Login</h1>
         {error && <div className="error-message">{error}</div>}
-        
+
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email</label>
