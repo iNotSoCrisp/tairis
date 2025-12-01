@@ -1,18 +1,7 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./styles/features.css";
-import arrowBtn from "../assets/arrow_btn.png";
 
 function Features() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Always redirect to AI page with query on enter
-    navigate("/get-started", { state: { initialQuery: searchQuery } });
-  };
-
   const featuresList = [
     {
       id: 1,
@@ -75,24 +64,6 @@ function Features() {
         </svg>
       </div>
       <div className="features-container">
-        <div className="features-header">
-          <h2>Tairis</h2>
-          <p>Everything you need for medical emergencies</p>
-
-          <form onSubmit={handleSearch} className="hero-search-form">
-            <input
-              type="text"
-              placeholder="Search for doctors, services, or health tips..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="hero-search-input"
-            />
-            <button type="submit" className="hero-search-btn">
-              <img src={arrowBtn} alt="Search" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-            </button>
-          </form>
-        </div>
-
         <div className="features-title-section">
           <h2>Why Choose Tairis?</h2>
           <p>Every feature designed to save precious lives</p>
