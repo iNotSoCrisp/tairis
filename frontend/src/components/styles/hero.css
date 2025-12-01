@@ -1,0 +1,217 @@
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Typography */
+.hero-title {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+}
+
+.serif-text {
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    /* Lighter weight for elegance */
+    font-style: normal;
+    /* Removed italic for more authority */
+    display: block;
+}
+
+.sans-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    display: block;
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+/* Badges / Cursors */
+.hero-badge-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.left-badge {
+    top: 10%;
+    left: 10%;
+    transform: rotate(-5deg);
+}
+
+.right-badge {
+    top: 20%;
+    right: 10%;
+    transform: rotate(5deg);
+}
+
+.hero-badge-label {
+    background: var(--primary-color);
+    color: #1e130c;
+    /* Dark brown text for contrast on gold/cream */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-md);
+}
+
+.hero-badge-cursor {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid var(--primary-color);
+    transform: rotate(-30deg);
+}
+
+/* Buttons */
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.hero-btn {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: #1e130c;
+    box-shadow: var(--shadow-glow);
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(4px);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Abstract Shapes -> Medical Crosses */
+.hero-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    background: var(--primary-color);
+    opacity: 0.15;
+    /* Subtle */
+    /* Create a cross shape using clip-path */
+    clip-path: polygon(35% 0%, 65% 0%,
+            65% 35%, 100% 35%,
+            100% 65%, 65% 65%,
+            65% 100%, 35% 100%,
+            35% 65%, 0% 65%,
+            0% 35%, 35% 35%);
+    filter: blur(2px);
+    /* Slight soft edge, not a blob */
+    animation: float-slow 8s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 120px;
+    height: 120px;
+    top: 15%;
+    left: 5%;
+    transform: rotate(-15deg);
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 180px;
+    height: 180px;
+    bottom: 10%;
+    right: 5%;
+    background: var(--accent-color);
+    /* Taupe cross */
+    transform: rotate(10deg);
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 20%;
+    opacity: 0.1;
+    transform: rotate(25deg);
+    animation-delay: 4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-badge-container {
+        display: none;
+        /* Hide floating badges on mobile to avoid clutter */
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(var(--rotation));
+    }
+}
