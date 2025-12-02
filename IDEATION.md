@@ -21,8 +21,7 @@ The user just answers a few yes/no questions and gets the right steps to follow 
 ## Tech Stack
 - Frontend: React  
 - Backend: Express.js  
-- Database: MySQL  
-- ORM: Prisma  
+- Database: Postgres-Supabase  
 - Runtime: Node.js  
 
 ---
