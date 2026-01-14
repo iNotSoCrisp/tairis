@@ -39,3 +39,5 @@ A simple web app that:
 - Guides users step by step in emergencies  
 - Works fast and easy for everyone  
 - Can be expanded with more medical topics later
+
+<!-- update 9 -->
